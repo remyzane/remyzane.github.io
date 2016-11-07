@@ -1,0 +1,19 @@
+/*
+
+html_theme = 'alabaster'
+
+*/
+
+div.document {
+    /*width: 940px;*/
+    width: auto;
+    min-width: 940px;
+    max-width: 1200px;
+}
+
+/*
+div.language, div.language a {
+    color: #863403;
+    font-size: 1rem;
+}
+*/
