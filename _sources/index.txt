@@ -8,8 +8,3 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-aaa
-   
-2016-11-08
-
-test

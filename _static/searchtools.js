@@ -324,14 +324,28 @@ var Search = {
     var searchterms = [];
     var excluded = [];
     var hlterms = [];
-    var tmp = query.split(/\W+/);
+
+
+// utf-8 support    by remy
+//    var tmp = query.split(/\W+/);
+    var tmp = query.match(/([\u4e00-\u9fa5]+)/g);
+    if (tmp === null) {
+        tmp = query.split(/\W+/);
+    } else {
+        tmp = tmp.concat(query.split(/\W+/));
+    }
+
+
     var objectterms = [];
     for (i = 0; i < tmp.length; i++) {
       if (tmp[i] !== "") {
           objectterms.push(tmp[i].toLowerCase());
       }
 
-      if ($u.indexOf(stopwords, tmp[i].toLowerCase()) != -1 || tmp[i].match(/^\d+$/) ||
+
+// numerical support    by remy
+//      if ($u.indexOf(stopwords, tmp[i].toLowerCase()) != -1 || tmp[i].match(/^\d+$/) ||
+      if ($u.indexOf(stopwords, tmp[i].toLowerCase()) != -1 ||
           tmp[i] === "") {
         // skip this "word"
         continue;
